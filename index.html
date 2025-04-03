@@ -1,1 +1,309 @@
-Hello world
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人简介 - 天涯古巷</title>
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2c3e50;
+            --light-color: #ecf0f1;
+            --dark-color: #34495e;
+            --accent-color: #e74c3c;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 60px 0 40px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+
+        header p {
+            margin: 10px 0 0;
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        section {
+            margin-bottom: 50px;
+            background: white;
+            padding: 30px;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: var(--secondary-color);
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+
+        .about-me {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .skills {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .skill-item {
+            margin-bottom: 15px;
+        }
+
+        .skill-name {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .skill-bar {
+            height: 10px;
+            background-color: #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .skill-level {
+            height: 100%;
+            background-color: var(--primary-color);
+            border-radius: 5px;
+        }
+
+        .projects-grid, .papers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .project-card, .paper-card {
+            border: 1px solid #eee;
+            border-radius: 5px;
+            padding: 20px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .project-card:hover, .paper-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-title, .paper-title {
+            color: var(--primary-color);
+            margin-top: 0;
+        }
+
+        .project-links, .paper-links {
+            margin-top: 15px;
+        }
+
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color: var(--accent-color);
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 4px;
+            margin-right: 10px;
+            font-size: 0.9em;
+        }
+
+        .btn:hover {
+            background-color: #2980b9;
+            color: white;
+        }
+
+        footer {
+            background-color: var(--secondary-color);
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 50px;
+        }
+
+        .social-links {
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            color: white;
+            margin: 0 10px;
+            font-size: 1.2em;
+        }
+
+        @media (max-width: 768px) {
+            .about-me {
+                flex-direction: column;
+            }
+
+            .projects-grid, .papers-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <!-- 替换为你的头像图片 -->
+            <img src="https://avatars.githubusercontent.com/u/50165320?v=4" alt="个人头像" class="profile-img">
+            <h1>天涯古巷</h1>
+            <p>AI | 图像 | 大模型</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <section class="about-section">
+            <div class="about-me">
+                <div class="about-text">
+                    <h2>关于我</h2>
+                    <p>我的兴趣包括开源贡献、技术创新和解决复杂问题。业余时间我喜欢阅读、写作和户外运动。</p>
+                    <p></p>
+                </div>
+            </div>
+        </section>
+
+        <section class="projects-section">
+            <h2>开源项目</h2>
+            <div class="projects-grid">
+                <!-- 项目1 -->
+                <div class="project-card">
+                    <h3 class="project-title">视频硬字幕提取器</h3>
+                    <p>视频硬字幕提取，生成srt文件。无需申请第三方API，本地实现文本识别。基于深度学习的视频字幕提取框架，包含字幕区域检测、字幕内容提取。</p>
+                    <div class="project-links">
+                        <a href="https://github.com/YaoFANGUK/video-subtitle-extractor" class="btn" target="_blank">GitHub</a>
+                        <a href="" class="btn" target="_blank">在线演示</a>
+                    </div>
+                </div>
+
+                <!-- 项目2 -->
+                <div class="project-card">
+                    <h3 class="project-title">视频字幕去除器</h3>
+                    <p>基于AI的图片/视频硬字幕去除、文本水印去除，无损分辨率生成去字幕、去水印后的图片/视频文件。</p>
+                    <div class="project-links">
+                        <a href="https://github.com/YaoFANGUK/video-subtitle-remover" class="btn" target="_blank">GitHub</a>
+                        <a href="" class="btn" target="_blank">在线演示</a>
+                    </div>
+                </div>
+
+                <!-- 项目3 -->
+                <div class="project-card">
+                    <h3 class="project-title">视频字幕生成器</h3>
+                    <p>视频音频生成字幕，生成srt文件。无需申请第三方API，本地实现音频转文本。</p>
+                    <div class="project-links">
+                        <a href="https://github.com/YaoFANGUK/video-subtitle-generator" class="btn" target="_blank">GitHub</a>
+                    </div>
+                </div>
+
+                 <!-- 项目3 -->
+                <div class="project-card">
+                    <h3 class="project-title">视频字幕翻译器</h3>
+                    <p>视频字幕翻译，输入srt文件生成翻译后的srt文件。无需申请第三方API，本地实现字幕翻译。</p>
+                    <div class="project-links">
+                        <a href="https://github.com/YaoFANGUK/video-subtitle-translator" class="btn" target="_blank">GitHub</a>
+                    </div>
+                </div>
+
+                <!-- 可以添加更多项目 -->
+            </div>
+        </section>
+
+        <section class="papers-section">
+            <h2>学术论文</h2>
+            <div class="papers-grid">
+                <!-- 论文1 -->
+                <div class="paper-card">
+                    <h3 class="paper-title">CLIP4HOI: Towards Adapting CLIP for Practical Zero-Shot HOI Detection</h3>
+                    <p><strong>Advances in Neural Information Processing Systems (NeurIPS)</strong>, September 2023</p>
+                    <p>Yunyao Mao, Jiajun Deng, Wengang Zhou, Li Li, <strong>Yao Fang</strong>, and Houqiang Li</p>
+                    <div class="paper-links">
+                        <a href="https://proceedings.neurips.cc/paper_files/paper/2023/file/8fd5bc08e744fe0dfe798c61d1575a22-Paper-Conference.pdf" class="btn" target="_blank">论文链接</a>
+                    </div>
+                </div>
+
+                <!-- 论文2 -->
+                <div class="paper-card">
+                    <h3 class="paper-title">Masked Motion Predictors are Strong 3D Action Representation Learners</h3>
+                    <p><strong>International Conference on Computer Vision (ICCV)</strong>, July 2023</p>
+                    <p>Yunyao Mao, Jiajun Deng, Wengang Zhou, <strong>Yao Fang</strong>, Wanli Ouyang, and Houqiang Li</p>
+                    <div class="paper-links">
+                        <a href="https://arxiv.org/pdf/2308.07092" class="btn" target="_blank">论文链接</a>
+                    </div>
+                </div>
+
+                <!-- 论文3 -->
+                <div class="paper-card">
+                    <h3 class="paper-title">SEDS: Semantically Enhanced Dual-Stream Encoder for Sign Language Retrieval</h3>
+                    <p><strong>ACM International Conference on Multimedia (ACM MM)</strong>, July 2024</p>
+                    <p>Longtao Jiang, Min Wang, Zecheng Li, <strong>Yao Fang</strong>, Wengang Zhou, and Hougiang Li</p>
+                    <div class="paper-links">
+                        <a href="https://arxiv.org/pdf/2407.16394" class="btn" target="_blank">论文链接</a>
+                    </div>
+                </div>
+
+                <!-- 可以添加更多论文 -->
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 天涯古巷. 保留所有权利.</p>
+            <div class="social-links">
+                <a href="https://github.com/yourusername" target="_blank">GitHub</a>
+                <a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a>
+                <a href="https://twitter.com/yourhandle" target="_blank">Twitter</a>
+                <a href="mailto:your.email@example.com">Email</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
